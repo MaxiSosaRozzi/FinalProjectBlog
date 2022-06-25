@@ -1,0 +1,33 @@
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<ul class="nav bg-dark fixed">
+    <li class="nav-item">
+      <a class="nav-link active" href="{%url 'blog_list' %}"> Borrar Sugerencia - Volver a List </a>
+    </li>
+  </ul>
+
+<br> 
+
+<div class="row">
+    <div class="col">
+      {% url 'blog_list' as blog_list_url %}
+      {% bootstrap_button "Volver a Lista" button_class="btn-warning" button_type="link" href=blog_list_url %}
+    <div>
+  <div>
+  <br>
+
+
+<form method="post"> {% csrf_token %}
+    <p> <b>  ¿Está seguro que quere borrar la sugerencia <FONT color= "red"> "{{object.titulo}}" </b></FONT> </p>
+    {{ form }}
+    <input type="submit" value="Confirmar">
+</form>    
+
+

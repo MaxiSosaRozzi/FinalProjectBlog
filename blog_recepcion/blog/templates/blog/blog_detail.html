@@ -1,0 +1,40 @@
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<ul class="nav bg-dark fixed">
+  <li class="nav-item">
+    <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias </a>
+  </li>
+</ul>
+
+<div class="row">
+    <div class="col">
+      {% url 'blog_list' as blog_list_url %}
+      {% bootstrap_button "Volver" button_class="btn-warning" button_type="link" href=blog_list_url %}
+    <div>
+  <div>
+  <br>
+
+
+
+<div>
+    <h4>Título: {{object.titulo}} </h4>
+    <br>
+    <h4>Sugerencia del huesped: </h4> <br> <p><b> {{object.sugerencia}}</b></p>
+    <br>
+    <h4> Nombre del huesped: </h4> <b>  {{object.nombre_de_huesped}} </b>
+</div>
+
+
+
+<ul class="nav bg-dark fixed-bottom justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url  'blog_list' %}"> Fecha de sugerencia: {{object.fecha_creacion}} - Hotel Recepcion </a>
+  </li>
+</ul>
