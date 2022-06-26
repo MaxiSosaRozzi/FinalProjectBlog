@@ -1,7 +1,22 @@
-<a href="{% url 'blog_list' %}">Volver a Lista</a>
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<div class="row">
+    <div class="col">
+      {% url 'blog_list' as blog_list_url %}
+      {% bootstrap_button "Volver a Lista" button_class="btn-warning" button_type="link" href=blog_list_url %}
+    <div>
+  <div>
+  <br>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Crear Cuenta">
+    <input type="submit" value="Crear Cuenta"> 
 </form>
