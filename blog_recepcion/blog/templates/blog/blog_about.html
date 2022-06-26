@@ -1,0 +1,26 @@
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<div class="row">
+    <div class="col">
+      {% url 'blog_list' as blog_list_url %}
+      {% bootstrap_button "Volver" button_class="btn-warning" button_type="link" href=blog_list_url %}
+    <div>
+  <div>
+  <br>
+
+
+<h1> Sobre nosotros </h1>
+
+<p>
+    Esta aplicación esta dedicada a la receción de sugerencias de los huespedes de un hotel.
+
+    Funciona a traves de formularios de alta, baja y modificación. Los mismos solo se presentan a aquellos usuarios que hayan creado un perfil en la página y posteriormente logueado.
+    La aplicación contiene las opciones correspodientes para que el usuario pueda crear su perfil, ingresarlo a traves de un login y cerrarlo a traves de un logout. El perfil puede editarse y contiene las opciones de agregar nombre, apellido, email
+</p>

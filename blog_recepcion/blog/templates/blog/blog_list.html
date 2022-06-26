@@ -7,42 +7,55 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
+
 <ul class="nav bg-dark fixed">
   <li class="nav-item">
     <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias</a>
   </li>
 </ul>
 
-<br> 
-<div class="row">
-  <div class="col">
-    {% url 'blog_create' as blog_create_url %}
-    {% bootstrap_button "Agregar Sugerencia" button_class="btn-warning" button_type="link" href=blog_create_url %}
-  <div>
-<div>
 <br>
 
+{% if user.is_authenticated %}
+    {% url 'blog_logout' as blog_logout_url %}
+    {% url 'blog_create' as blog_create_url %}
+    <a href="{% url 'blogger_profile' user.id %}"> <b> Perfil:</b> {{user.username}}</a> <br> <br>
+    {% bootstrap_button "Cerrar sesion" button_class="btn-danger" button_type="link" href=blog_logout_url %}  
+     <br> <br>
+    {% bootstrap_button "Agregar Sugerencia" button_class="btn-success" button_type="link" href=blog_create_url %}
+{% else %}
+    {% url 'blog_login' as blog_login_url %}
+    {% url 'blogger_signup' as blogger_signup_url %}
+    {% bootstrap_button "Entrar" button_class="btn-success" button_type="link" href=blog_login_url %}
+    {% bootstrap_button "Crear Cuenta" button_class="btn-success" button_type="link" href=blogger_signup_url %} <br><br>
+{% endif %}
+           
 <h3><B><FONT COLOR="blue">Lista de sugerencias para el Hotel </FONT> </h3>
 
+  <br>
+
+
+  {% if object_list %}
+      {% for blog in object_list %}
+      <li>
+          {{blog.nombre_de_huesped}}:
+          {{blog.titulo}} 
+          <a href="{% url 'blog_detail' blog.id %}" > <FONT COLOR="black"> <b> Detalle </b> </a> </FONT> - 
+          {% if user.is_authenticated %}
+          <a href="{% url 'blog_update' blog.id %}" > <FONT COLOR="green"> <b> Actualizar </b> </a> </FONT> -
+          <a href="{% url 'blog_delete' blog.id %}" > <FONT COLOR="red">  <b> Borrar </b> </a> </FONT> -
+          <b> Fecha: </b> {{blog.fecha_creacion}}
+          {% endif %}
+      </li>
+      {% endfor %}
+  {% else %}
+    <h1><b> No hay blogs agregados </b> </h1> 
+  {% endif %}  
 <br>
 
-{% if object_list %}
-    {% for blog in object_list %}
-    <li>
-        {{blog.nombre_de_huesped}}:
-        {{blog.titulo}} 
-        <a href="{% url 'blog_detail' blog.id %}" > <FONT COLOR="black"> <b> Detalle </b> </a> </FONT> - 
-        <a href="{% url 'blog_update' blog.id %}" > <FONT COLOR="green"> <b> Actualizar </b> </a> </FONT> -
-        <a href="{% url 'blog_delete' blog.id %}" > <FONT COLOR="red">  <b> Borrar </b> </a> </FONT> -
-           <b> Fecha: </b> {{blog.fecha_creacion}}
-    </li>
-    {% endfor %}
-{% else %}
-  <h1><b> No hay blogs agregados </b> </h1> 
-{% endif %}  
 
 <ul class="nav bg-dark fixed-bottom justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Recepción {% now 'd-m-Y' %} - Cannizzo / Sosa Rozzi</a>
+    <a class="nav-link active" href="{%url  'blog_about' %}"> Sobre Nosotros {% now 'd-m-Y' %} - Cannizzo / Sosa Rozzi</a>
   </li>
 </ul>
