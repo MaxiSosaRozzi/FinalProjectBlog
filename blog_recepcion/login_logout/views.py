@@ -10,7 +10,7 @@ class SignUpView(SuccessMessageMixin, CreateView):
   template_name = 'login_logout/creacion_cuenta.html'
   success_url = reverse_lazy('blog_login')
   form_class = UserCreationForm
-  success_message = "¡¡ Se creo tu perfil satisfactoriamente !!"
+  success_message = "¡Se creo tu Usuario con éxito!"
 
 class BloggerProfile(DetailView):
 

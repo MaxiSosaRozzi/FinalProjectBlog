@@ -1,5 +1,26 @@
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+
+<ul class="nav bg-dark fixed">
+    <li class="nav-item">
+      <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias</a>
+    </li>
+  </ul> <br>
+
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">Iniciar Sesión</button>
+    <div class="row">
+        <div class="col">
+        {% bootstrap_button "Iniciar Sesion" button_type="submit" button_class="btn-success" %}
+        <div>
+      <div>
 </form>

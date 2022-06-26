@@ -1,7 +1,23 @@
-<a href="{% url 'blogger_profile' user.id %}">Volver a Profile</a>
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+<a href="{% url 'blogger_profile' user.id %}"> <b>Volver al perfil del User </b></a> <br><br>
+
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Guardar">
+    <br>    
+    <div class="row">
+        <div class="col">
+        {% bootstrap_button "Guardar" button_type="submit" button_class="btn-success" %}
+        <div>
+      <div>
 </form>

@@ -1,11 +1,29 @@
-<a href="{% url 'blog_list' %}">Volver a Lista Blogs</a>
-<a href="{% url 'blogger_edit' user.id %}">Editar Perfil</a>
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<div class="row">
+    <div class="col">
+      {% url 'blog_list' as blog_list_url %}
+      {% bootstrap_button "Volver a Lista" button_class="btn-warning" button_type="link" href=blog_list_url %}
+    <div>
+  <div>
+  <br>
+
+<a href="{% url 'blogger_edit' user.id %}"><b> Editar Perfil </b></a>
 
 <ul>
-    <li>Nombre: {{object.first_name}}<li>
-    <li>Apellido: {{object.last_name}}<li>
-    <li>Correo electronico: {{object.email}} </li>
-    <li>Nombre de Usuario: {{object.username}}</li>
+  
+    <li> <b> Nombre: </b> {{object.first_name}} </li>
+    <li> <b> Apellido: </b> {{object.last_name}} </li>
+    <li> <b> Correo electronico: </b> {{object.email}} </li>
+    <li> <b> Nombre de Usuario: </b> {{object.username}}</li>
+   
 </ul>
 
 <img height="128" src="{{ object.avatar_set.first.image.url }}" />
