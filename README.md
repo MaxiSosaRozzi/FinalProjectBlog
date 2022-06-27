@@ -1,4 +1,6 @@
 # Proyecto Final - Blog de recepción de Hotel
+# Video Explicativo de la aplicación: https://www.youtube.com/watch?v=g3dDqdT8TvM
+
 
 # Contiene: 
 
