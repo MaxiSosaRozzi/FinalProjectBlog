@@ -6,6 +6,7 @@
 
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
+{% load static %}
 
 
 <ul class="nav bg-dark fixed">
@@ -30,10 +31,9 @@
     {% bootstrap_button "Crear Cuenta" button_class="btn-success" button_type="link" href=blogger_signup_url %} <br><br>
 {% endif %}
            
-<h3><B><FONT COLOR="blue">Lista de sugerencias para el Hotel </FONT> </h3>
+<h3> <u> <B><FONT COLOR="blue">Lista de sugerencias para el Hotel </FONT> </u> </h3>
 
-  <br>
-
+<br>
 
   {% if object_list %}
       {% for blog in object_list %}
@@ -53,11 +53,12 @@
   {% endif %}  
 <br>
 
-<img height="128" src="{{ object.avatar_set.first.image.url }}" />
-
+<body>
+<img src="media/avatars/hotel.jpg" width="700" height="400" alt="Hotel">
+</body>
 
 <ul class="nav bg-dark fixed-bottom justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="{%url  'blog_about' %}"> Sobre Nosotros {% now 'd-m-Y' %} - Cannizzo / Sosa Rozzi</a>
+    <a class="nav-link active" href="{%url  'blog_about' %}"> <b> Click Aquí About </b> <bl> <bl> {% now 'd-m-Y' %} - Cannizzo / Sosa Rozzi</a>
   </li>
 </ul>

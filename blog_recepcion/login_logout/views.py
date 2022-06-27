@@ -1,9 +1,11 @@
+from email.mime import image
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.shortcuts import render
 
 
 class SignUpView(SuccessMessageMixin, CreateView):
@@ -11,7 +13,7 @@ class SignUpView(SuccessMessageMixin, CreateView):
   success_url = reverse_lazy('blog_login')
   form_class = UserCreationForm
   success_message = "¡Se creo tu Usuario con éxito!"
-
+      
 class BloggerProfile(DetailView):
 
     model = User
@@ -26,3 +28,5 @@ class BloggerUpdate(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
       return reverse_lazy("blogger_profile", kwargs={"pk": self.request.user.id})
+
+      

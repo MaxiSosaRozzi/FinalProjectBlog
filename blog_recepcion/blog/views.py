@@ -15,6 +15,11 @@ class BlogList(ListView):
     model = BlogModel
     template_name = "blog/blog_list.html"
 
+def Vista1(request):
+    diccionario = {}
+    return render(request,"blog/blog_list.html",context=diccionario) 
+
+      
 class BlogDetail(DetailView):
 
     model = BlogModel
