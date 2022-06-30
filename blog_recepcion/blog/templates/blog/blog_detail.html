@@ -1,17 +1,10 @@
+{%extends "blog/base_blog.html" %}
+
 {% load bootstrap5 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{%block detail%}
 
-<ul class="nav bg-dark fixed">
-  <li class="nav-item">
-    <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias </a>
-  </li>
-</ul>
 
 <div class="row">
     <div class="col">
@@ -21,8 +14,6 @@
   <div>
   <br>
 
-
-
 <div>
     <h4>Título: {{object.titulo}} </h4>
     <br>
@@ -31,10 +22,4 @@
     <h4> Nombre del huesped: </h4> <b>  {{object.nombre_de_huesped}} </b>
 </div>
 
-
-
-<ul class="nav bg-dark fixed-bottom justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="{% url  'blog_list' %}"> Fecha de sugerencia: {{object.fecha_creacion}} - Hotel Recepcion </a>
-  </li>
-</ul>
+{%endblock%}

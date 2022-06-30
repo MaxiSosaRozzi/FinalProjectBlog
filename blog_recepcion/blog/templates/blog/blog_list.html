@@ -1,21 +1,9 @@
+{%extends "blog/base_blog.html" %}
+
 {% load bootstrap5 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-{% load static %}
-
-
-<ul class="nav bg-dark fixed">
-  <li class="nav-item">
-    <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias</a>
-  </li>
-</ul>
-
-<br>
+{%block blogs%}
 
 {% if user.is_authenticated %}
     {% url 'blog_logout' as blog_logout_url %}
@@ -53,12 +41,6 @@
   {% endif %}  
 <br>
 
-<body>
-<img src="media/avatars/hotel.jpg" width="700" height="400" alt="Hotel">
-</body>
+{% endblock %}
 
-<ul class="nav bg-dark fixed-bottom justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="{%url  'blog_about' %}"> <b> Click Aquí About </b> <bl> <bl> {% now 'd-m-Y' %} - Cannizzo / Sosa Rozzi</a>
-  </li>
-</ul>
+

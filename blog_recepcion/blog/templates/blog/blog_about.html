@@ -1,11 +1,9 @@
+{%extends "blog/base_blog.html" %}
+
 {% load bootstrap5 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{%block about%}
 
 <br>
 
@@ -27,3 +25,5 @@
     La aplicación contiene las opciones correspodientes para que el usuario pueda crear su perfil, ingresarlo a traves de un login y cerrarlo a traves de un logout. <br>
      El perfil puede editarse y contiene las opciones de agregar nombre, apellido, email
   </b> </p>
+
+{%endblock%}  

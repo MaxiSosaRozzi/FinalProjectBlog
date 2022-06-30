@@ -1,11 +1,9 @@
+{%extends "blog/base_blog.html" %}
+
 {% load bootstrap5 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{%block user_form%}
 
 
 <a href="{% url 'blogger_profile' user.id %}"> <b>Volver al perfil del User </b></a> <br><br>
@@ -21,3 +19,6 @@
         <div>
       <div>
 </form>
+
+
+{%endblock%}

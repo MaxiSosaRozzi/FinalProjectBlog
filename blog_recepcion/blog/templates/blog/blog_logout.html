@@ -1,13 +1,8 @@
+{%extends "blog/base_blog.html" %}
+
 {% load bootstrap5 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-{% load static %}
-
+{%block logout%}
 
 <h1><B><FONT COLOR="blue"> Cerraste Sesión! </FONT> </b></h1> <br>
 <h3> Gracias por ingresar al Blog de Sugerencias </h3> <br> <br>
@@ -21,3 +16,5 @@
     <div>
   <div>
   <br>
+
+  {%endblock%}  

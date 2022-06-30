@@ -1,12 +1,9 @@
+{%extends "blog/base_blog.html" %}
+
 {% load bootstrap5 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-{% load static %}
+{%block crear_cuenta%}
 
 <div class="row">
     <div class="col">
@@ -22,3 +19,4 @@
     <input type="submit" value="Crear Cuenta"> 
 </form>
 
+{%endblock%}

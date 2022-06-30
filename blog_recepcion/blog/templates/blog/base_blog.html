@@ -1,0 +1,51 @@
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static %}
+
+<ul class="nav bg-dark fixed">
+    <li class="nav-item">
+      <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias </a>
+    </li>
+  </ul>
+  
+  <br>
+
+{%block blogs%}
+{% endblock %}
+
+{%block login%}
+{%endblock%}
+
+{%block logout%}
+{%endblock%}
+
+{%block detail%}
+{%endblock%}
+
+{%block about%}
+{%endblock%}
+
+{%block blogger_detail%}
+{%endblock%}
+
+{%block crear_cuenta%}
+{%endblock%}
+
+{%block user_form%}
+{%endblock%}
+
+
+    <ul class="nav bg-dark fixed-bottom justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="{%url  'blog_about' %}"> <b> Click Aquí About </b> <bl> <bl> {% now 'd-m-Y' %} - Cannizzo / Sosa Rozzi</a>
+      </li>
+    </ul>
+
+     
+
