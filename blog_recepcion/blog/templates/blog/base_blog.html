@@ -8,13 +8,12 @@
 {% bootstrap_messages %}
 {% load static %}
 
-<ul class="nav bg-dark fixed">
+<ul class="nav bg-dark fixed justify-content-center">
     <li class="nav-item">
-      <a class="nav-link active" href="{%url  'blog_list' %}"> Blog de Sugerencias </a>
+      <a class="nav-link active" href="{%url  'blog_list' %}"> <b> Blog de Sugerencias  </b> </a>
     </li>
   </ul>
   
-  <br>
 
 {%block blogs%}
 {% endblock %}

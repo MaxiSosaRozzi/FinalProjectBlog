@@ -56,4 +56,4 @@ class About(View):
   return render(request, "blog/blog_about.html", {} )
 
  def post():
-  pass    
+  pass  

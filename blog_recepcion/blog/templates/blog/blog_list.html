@@ -8,7 +8,10 @@
 {% if user.is_authenticated %}
     {% url 'blog_logout' as blog_logout_url %}
     {% url 'blog_create' as blog_create_url %}
-    <a href="{% url 'blogger_profile' user.id %}"> <b> Perfil:</b> {{user.username}}</a> <br> <br>
+
+    <a href="{% url 'blogger_profile' user.id %}"> <b> Perfil:</b> {{user.username}}</a> <br>
+    <img height="128" src="{{user.avatar_set.first.image.url}}" /> <br> <br>
+
     {% bootstrap_button "Cerrar sesion" button_class="btn-danger" button_type="link" href=blog_logout_url %}  
      <br> <br>
     {% bootstrap_button "Agregar Sugerencia" button_class="btn-success" button_type="link" href=blog_create_url %}
@@ -40,6 +43,10 @@
     <h1><b> No hay blogs agregados </b> </h1> 
   {% endif %}  
 <br>
+
+<!-- ESTA ES UNA IMAGEN ESTÁTICA PARA EL BLOG LIST; NO ES MUTABLE COMO LAS DE USER-->
+
+<img src="media/avatars/hotel.jpg" alt="Hotel" null="TRUE" blank="TRUE">
 
 {% endblock %}
 

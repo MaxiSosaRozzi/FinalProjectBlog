@@ -1,3 +1,9 @@
 from django.contrib import admin
+from blog.models import AvatarBlog
+from django.contrib import admin
+from blog.models import BlogModel
 
-# Register your models here.
+admin.site.register(AvatarBlog)
+
+admin.site.register(BlogModel)
+

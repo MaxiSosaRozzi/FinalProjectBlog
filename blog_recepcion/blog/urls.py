@@ -14,5 +14,4 @@ urlpatterns = [
     path("about/", About.as_view(), name="blog_about"),
 ]
 
-
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
