@@ -1,6 +1,11 @@
 # Proyecto Final - Blog de recepción de Hotel
 # Video Explicativo de la aplicación: https://www.youtube.com/watch?v=g3dDqdT8TvM
 
+# ACLARACIÓN: 
+
+- Se agregan plantillas heredadas. 
+- Avatar en los profiles (se pueden administrar Realizar ABM desde el USER)
+
 
 # Contiene: 
 
